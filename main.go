@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/Kumengda/Minke/minke"
+	"github.com/docker/docker/client"
 	"regexp"
 )
 
@@ -15,7 +16,7 @@ func main() {
 	regex1, _ := regexp.Compile(".*test.*")
 	myMink.SetImageNameFilter(regex1)
 	myMink.SetLogLine(1)
-	myMink.SetLogMonitor(minke.NewBaseMonitor(func(containerFrame minke.ContainerFrame) error {
+	myMink.SetLogMonitor(minke.NewBaseMonitor(func(cli *client.Client, containerFrame minke.ContainerFrame) error {
 		var status string
 		switch containerFrame.Status {
 		case minke.ADD:

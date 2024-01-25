@@ -59,11 +59,12 @@ func (m *Minke) SetLogMonitor(monitor Monitor) {
 }
 
 func (m *Minke) Monitor(frameInterval int) {
+
 	m.frameInterval = frameInterval
 	for {
 		snapShot := m.snapshot()
 		for _, v := range snapShot {
-			err := m.monitor.Monitoring(v)
+			err := m.monitor.Monitoring(m.client, v)
 			if err != nil {
 				if m.monitorErrorFunc != nil {
 					m.monitorErrorFunc(err)
