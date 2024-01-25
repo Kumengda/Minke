@@ -12,7 +12,7 @@ func main() {
 		return
 	}
 
-	regex1, _ := regexp.Compile(".*ai.radar.*")
+	regex1, _ := regexp.Compile(".*test.*")
 	myMink.SetImageNameFilter(regex1)
 	myMink.SetLogLine(1)
 	myMink.SetLogMonitor(minke.NewBaseMonitor(func(containerFrame minke.ContainerFrame) error {

@@ -71,7 +71,6 @@ func (m *Minke) snapshot() []ContainerFrame {
 				Logs:            m.getContainerLog(c.ID),
 				PerformanceData: PerformanceData{},
 			})
-			m.firstStartLock = true
 			break
 		}
 		if !mathFlag {
@@ -82,8 +81,8 @@ func (m *Minke) snapshot() []ContainerFrame {
 				PerformanceData: PerformanceData{},
 			})
 		}
-
 	}
+	m.firstStartLock = true
 	m.snapShotTimeStamp = fmt.Sprintf("%d", time.Now().Unix())
 	return containerFrame
 }
