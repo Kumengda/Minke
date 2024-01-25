@@ -71,7 +71,7 @@ func (m *Minke) snapshot() []ContainerFrame {
 				Logs:            m.getContainerLog(c.ID),
 				PerformanceData: PerformanceData{},
 			})
-			break
+			continue
 		}
 		if !mathFlag {
 			containerFrame = append(containerFrame, ContainerFrame{
