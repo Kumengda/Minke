@@ -13,7 +13,7 @@ func main() {
 		return
 	}
 
-	regex1, _ := regexp.Compile(".*test.*")
+	regex1, _ := regexp.Compile(".*ai.radar.*")
 	myMink.SetImageNameFilter(regex1)
 	myMink.SetLogLine(1)
 	myMink.SetLogMonitor(minke.NewBaseMonitor(func(cli *client.Client, containerFrame minke.ContainerFrame) error {
@@ -30,5 +30,5 @@ func main() {
 		fmt.Printf("name:%s id:%s status:%s Logs:%s\n", containerFrame.ContainerInfo.Names[0], containerFrame.ContainerInfo.ID, status, containerFrame.Logs)
 		return nil
 	}))
-	myMink.Monitor(1)
+	myMink.Monitor(10)
 }

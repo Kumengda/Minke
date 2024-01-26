@@ -11,12 +11,9 @@ const (
 )
 
 type PerformanceData struct {
-	NetIo      string
-	BlockIo    string
-	CPU        string
-	MEM        string
-	LIMIT      string
-	MEMPercent string
+	CPU   string
+	MEM   float64
+	LIMIT float64
 }
 
 type ContainerFrame struct {
